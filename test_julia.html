@@ -1,0 +1,428 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./jupyter.css">
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+  </head>
+  <body>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I didn’t write on the blog since 8 days, it is partially because I didn’t keep with my intended schedule, but also because I spend way too much time configuring my computer, Emacs, and learning about Jupyter notebook and the Julia programming language.</p>
+<p>To be honest, I stumbled on too many bugs on different levels, spent my time fixing bugs instead of learning. It was discouraging and it is why I didn’t work as much as I intended.</p>
+<p>Today I will quickly speak about my new configuration, and then show an example of what can be done with Jupyter notebook, in fact, I wrote this article using it.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="New-emacs-configuration">New emacs configuration<a class="anchor-link" href="#New-emacs-configuration">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I had a lot of inconsistent or weird keybindings that I changed, I also completely rewrite my Emacs configuration to organize it betters, and I installed some new useful packages :</p>
+<p>(The videos are poorly done, and I hesitated to redo them, but I should really move forward)</p>
+<p><b>Ace-jump</b></p>
+<iframe src="https://drive.google.com/file/d/0B8qHk1uE1yFtTDZ3Z0hxMlpubFE/preview" width="640" height="480"></iframe>
+<p><b>Helm and helm-dash</b></p>
+<iframe src="https://drive.google.com/file/d/0B8qHk1uE1yFteV93aTMzaFZ0dGs/preview" width="640" height="480"></iframe>
+<p><b>Company and helm-company</b></p>
+<iframe src="https://drive.google.com/file/d/0B8qHk1uE1yFteTlsNFJCbnRSM3c/preview" width="640" height="480"></iframe>
+<p>And finally <b>ein</b> (Emacs Ipython Notebook), a client for the Jupyter notebook than I am using right now:</p>
+<iframe src="https://drive.google.com/file/d/0B8qHk1uE1yFtdUd5T29IN3FUM2c/preview" width="640" height="480"></iframe>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You probably remember the article about <a href="http://240hoursoflearning.blogspot.fr/2017/08/first-post.html">sum of sequences</a>.</p>
+<p>I will use Julia and SymPy to do the calculus.</p>
+<p>First let install Sympy, a library to do symbolic mathematics.</p>
+<p>For that, we will use Pkg, the built-in package manager of Julia (Julia is a really good programming language which ought to be more popular).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">Pkg</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&quot;SymPy&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Cloning cache of BaseTestNext from https://github.com/JuliaCI/BaseTestNext.jl.git
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Cloning cache of MacroTools from https://github.com/MikeInnes/MacroTools.jl.git
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Cloning cache of PyCall from https://github.com/JuliaPy/PyCall.jl.git
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Cloning cache of SymPy from https://github.com/JuliaPy/SymPy.jl.git
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Installing BaseTestNext v0.2.2
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Installing MacroTools v0.3.7
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Installing PyCall v1.14.0
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Installing SymPy v0.5.3
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Building Conda
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Building PyCall
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">PyCall is using python (Python 3.6.2) at /usr/bin/python, libpython = /usr/lib/libpython3.6m
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">/home/dionisos/.julia/v0.6/PyCall/deps/deps.jl has been updated
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">/home/dionisos/.julia/v0.6/PyCall/deps/PYTHON has been updated
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Package database updated
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">METADATA is out-of-date — you may not have the latest version of SymPy
+</span><span class="ansi-cyan-intense-fg ansi-bold">INFO: </span><span class="ansi-cyan-fg">Use `Pkg.update()` to get the latest versions of your packages
+</span></pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>First, we will test the SymPy package on some simple calculus.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">using</span> <span class="n">SymPy</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">Sym</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">a</span><span class="o">=</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="n">x</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a</span><span class="o">*</span><span class="mi">3</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[40]:</div>
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$$6 x + 6$$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Everything is working perfectly, yes Sympy is pretty cool :-)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Caculating-&#8721;x^k">Caculating &#8721;x^k<a class="anchor-link" href="#Caculating-&#8721;x^k">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will try to use one of the formula given in sum of sequences article to calculate ∑x^k (successive derivatives)
+Let begin to calculate ∑x^2.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="n">Sym</span><span class="p">(</span><span class="s">&quot;n&quot;</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">diff</span><span class="p">((</span><span class="n">diff</span><span class="p">(</span><span class="n">g</span><span class="p">,</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="p">),</span><span class="n">x</span><span class="p">)</span>
+<span class="n">limit</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;+&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[41]:</div>
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$$\frac{n^{3}}{3} + \frac{n^{2}}{2} + \frac{n}{6}$$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That works ! Now we should generalize.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">closed_form_geometric</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">^</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">function</span> <span class="n">closing_form_of_xk</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="nd">@vars</span> <span class="n">x</span> <span class="n">n</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">closed_form_geometric</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">k</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">*=</span> <span class="n">x</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">limit</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;+&quot;</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">k1</span> <span class="o">=</span> <span class="n">closing_form_of_xk</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">k1</span><span class="p">)</span>
+<span class="n">k2</span> <span class="o">=</span> <span class="n">closing_form_of_xk</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">k2</span><span class="p">)</span>
+<span class="n">k3</span> <span class="o">=</span> <span class="n">closing_form_of_xk</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">k3</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_latex output_subarea ">
+$$\frac{n^{2}}{2} + \frac{n}{2}$$
+</div>
+
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_latex output_subarea ">
+$$\frac{n^{3}}{3} + \frac{n^{2}}{2} + \frac{n}{6}$$
+</div>
+
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_latex output_subarea ">
+$$\frac{n^{4}}{4} + \frac{n^{3}}{2} + \frac{n^{2}}{4}$$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It is very inefficient, but it works.</p>
+<p>Let’s see if all our calculus were correct.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">7</span>
+<span class="nd">@time</span> <span class="n">sum_f</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="p">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">500</span><span class="p">))</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sum_f</span><span class="p">)</span>
+
+<span class="n">closed_form_of_f</span> <span class="o">=</span> <span class="mi">5</span><span class="o">*</span><span class="n">k3</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">k2</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">k1</span> <span class="o">+</span> <span class="mi">7</span><span class="o">*</span><span class="n">n</span>
+<span class="nd">@time</span> <span class="n">sum_f</span> <span class="o">=</span> <span class="n">subs</span><span class="p">(</span><span class="n">closed_form_of_f</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">sum_f</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_text output_subarea ">
+$$78563692250$$
+</div>
+
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+
+
+<div class="output_latex output_subarea ">
+$$78563692250$$
+</div>
+
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>  0.036154 seconds (5.01 k allocations: 273.709 KiB)
+  0.002844 seconds (67 allocations: 2.266 KiB)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Oh yeah :-) !</p>
+<p>And to finish, and show to you I wasn’t lying when I said it requires a lot of calculus ^^</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-julia"><pre><span></span><span class="k">function</span> <span class="n">closing_form_of_xk_before_limit</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="nd">@vars</span> <span class="n">x</span> <span class="n">n</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">closed_form_geometric</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="kp">in</span> <span class="mi">1</span><span class="o">:</span><span class="n">k</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">*=</span> <span class="n">x</span>
+    <span class="k">end</span>
+    <span class="k">return</span> <span class="n">result</span>
+<span class="k">end</span>
+
+<span class="n">closing_form_of_xk_before_limit</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[44]:</div>
+
+
+
+<div class="output_latex output_subarea output_execute_result">
+$$x \left(x \left(\frac{2 \left(x^{n + 1} - 1\right)}{\left(x - 1\right)^{3}} - \frac{2 x^{n + 1} \left(n + 1\right)}{x \left(x - 1\right)^{2}} + \frac{x^{n + 1} \left(n + 1\right)^{2}}{x^{2} \left(x - 1\right)} - \frac{x^{n + 1} \left(n + 1\right)}{x^{2} \left(x - 1\right)}\right) + x \left(x \left(- \frac{6 \left(x^{n + 1} - 1\right)}{\left(x - 1\right)^{4}} + \frac{6 x^{n + 1} \left(n + 1\right)}{x \left(x - 1\right)^{3}} - \frac{3 x^{n + 1} \left(n + 1\right)^{2}}{x^{2} \left(x - 1\right)^{2}} + \frac{3 x^{n + 1} \left(n + 1\right)}{x^{2} \left(x - 1\right)^{2}} + \frac{x^{n + 1} \left(n + 1\right)^{3}}{x^{3} \left(x - 1\right)} - \frac{3 x^{n + 1} \left(n + 1\right)^{2}}{x^{3} \left(x - 1\right)} + \frac{2 x^{n + 1} \left(n + 1\right)}{x^{3} \left(x - 1\right)}\right) + \frac{4 \left(x^{n + 1} - 1\right)}{\left(x - 1\right)^{3}} - \frac{4 x^{n + 1} \left(n + 1\right)}{x \left(x - 1\right)^{2}} + \frac{2 x^{n + 1} \left(n + 1\right)^{2}}{x^{2} \left(x - 1\right)} - \frac{2 x^{n + 1} \left(n + 1\right)}{x^{2} \left(x - 1\right)}\right) - \frac{x^{n + 1} - 1}{\left(x - 1\right)^{2}} + \frac{x^{n + 1} \left(n + 1\right)}{x \left(x - 1\right)}\right)$$
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
+  </body>
+</html>
