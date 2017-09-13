@@ -1,9 +1,9 @@
 .highlight .hll {
-    background-color: #000000
+    background-color: #FFFFFF
 }
 
 .highlight {
-    background: #f8f8f8;
+    background: #2b303b;
 }
 
 .highlight .c {
@@ -30,7 +30,7 @@
 /* Keyword */
 
 .highlight .o {
-    color: #666666
+    color: #EF6602
 }
 
 
@@ -203,14 +203,14 @@
 /* Keyword.Type */
 
 .highlight .m {
-    color: #666666
+    color: #EF6602
 }
 
 
 /* Literal.Number */
 
 .highlight .s {
-    color: #BA2121
+    color: #B9CA4A
 }
 
 
@@ -220,7 +220,13 @@
     color: #7D9029
 }
 
+.highlight .n {
+    color: #7AA6DA
+}
 
+.highlight .p {
+    color: #FAFAFA
+}
 /* Name.Attribute */
 
 .highlight .nb {
@@ -321,35 +327,35 @@
 /* Text.Whitespace */
 
 .highlight .mb {
-    color: #666666
+    color: #EF6602
 }
 
 
 /* Literal.Number.Bin */
 
 .highlight .mf {
-    color: #666666
+    color: #EF6602
 }
 
 
 /* Literal.Number.Float */
 
 .highlight .mh {
-    color: #666666
+    color: #EF6602
 }
 
 
 /* Literal.Number.Hex */
 
 .highlight .mi {
-    color: #666666
+    color: #EF6602
 }
 
 
 /* Literal.Number.Integer */
 
 .highlight .mo {
-    color: #666666
+    color: #EF6602
 }
 
 
@@ -464,7 +470,7 @@
 /* Name.Variable.Instance */
 
 .highlight .il {
-    color: #666666
+    color: #EF6602
 }
 
 
@@ -506,7 +512,7 @@ div.input_prompt {
 }
 
 div.output_prompt {
-    color: #000000;
+    color: #ab7967;
 }
 
 div.input_area {
@@ -531,7 +537,7 @@ div.output_subarea {
 .rendered_html tr,
 .rendered_html td {
     border: 1px #c0c5ce solid;
-    color: #000000;
+    color: #FFFFFF;
 }
 
 div.output_html {
